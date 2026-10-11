@@ -14,7 +14,9 @@ class Config:
     crop: tuple[float, float, float, float] = (0.31, 0.36, 0.69, 0.62)
     engine: str = "tesseract"
     tesseract_cmd: str = ""
-    match_threshold: int = 70
+    gemini_model: str = "gemini-3.5-flash-lite"
+    gemini_api_key: str = ""
+    match_threshold: int = 85
     cache_ttl: float = 300.0
     rate_limit: float = 0.3
     host: str = "127.0.0.1"
@@ -30,6 +32,7 @@ def load_config(path: Path) -> Config:
     hotkey = data.get("hotkey", {})
     capture = data.get("capture", {})
     ocr = data.get("ocr", {})
+    gemini = data.get("gemini", {})
     match = data.get("match", {})
     market = data.get("market", {})
     server = data.get("server", {})
@@ -41,6 +44,8 @@ def load_config(path: Path) -> Config:
         crop=tuple(float(v) for v in capture.get("crop", Config.crop)),
         engine=ocr.get("engine", Config.engine),
         tesseract_cmd=ocr.get("tesseract_cmd", Config.tesseract_cmd),
+        gemini_model=gemini.get("model", Config.gemini_model),
+        gemini_api_key=gemini.get("api_key", Config.gemini_api_key),
         match_threshold=int(match.get("threshold", Config.match_threshold)),
         cache_ttl=float(market.get("cache_ttl", Config.cache_ttl)),
         rate_limit=float(market.get("rate_limit", Config.rate_limit)),

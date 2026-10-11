@@ -18,6 +18,7 @@ Roadmap for a hotkey-triggered Warframe relic reward scanner. When the user pres
  
 ```
 hotkey (pynput) -> capture (mss) -> preprocess (OpenCV) -> OCR (Tesseract/EasyOCR)
+   or Gemini vision (--gemini flag)
    -> fuzzy match (rapidfuzz vs. cached item list) -> market lookup (warframe.market)
    -> broadcast JSON (FastAPI WebSocket on 127.0.0.1)
    -> Tauri overlay (frontend) receives the message and renders it
@@ -39,6 +40,8 @@ The backend and the overlay are two separate processes. The backend knows nothin
 - [ ] Capture one wide strip covering all four reward slots, then split into per-slot crops.
 - [x] Preprocess: grayscale, 2-3x upscale, threshold. Light text on a dark background.
 - [ ] OCR each slot with Tesseract. Compare against EasyOCR on the same crops.
+- [x] Gemini vision alternative (`--gemini`): send the strip to Gemini
+      flash-lite and parse item names from the reply.
 - [x] Dump debug crops to disk behind a `--debug` flag.
 ### M3: Matching and market data
 - [x] Fetch an item from `https://api.warframe.market/v2/item/{slug}` with a TTL. Ignore forma blueprints.

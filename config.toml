@@ -10,15 +10,22 @@ ui_scale = 1.0      # in-game UI scale the crop was calibrated at
 
 # Reward strip as fractions of the screen: left, top, right, bottom.
 # Measure with: python tools/calibrate.py reward.png
-crop = [0.31, 0.36, 0.69, 0.62]
+crop = [0.2309, 0.1294, 0.6664, 0.5350]
 
 [ocr]
 engine = "tesseract"
 # Leave empty to use the tesseract found on PATH.
 tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
+[gemini]
+# Used when the backend runs with --gemini (or [ocr] engine = "gemini").
+model = "gemini-3.5-flash-lite"
+# Leave empty to read the key from the GEMINI_API_KEY environment variable
+# or from GEMINI_API_KEY=... in a .env file in the working directory.
+api_key = ""
+
 [match]
-threshold = 70      # rapidfuzz score below this is reported as unknown
+threshold = 85      # rapidfuzz score below this is reported as unknown
 
 [market]
 cache_ttl = 300     # seconds to keep the item list and prices cached
