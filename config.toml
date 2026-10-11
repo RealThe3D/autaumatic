@@ -1,0 +1,29 @@
+# Autaumatic backend configuration.
+
+[hotkey]
+combo = "<alt>+`"   # pynput GlobalHotKeys syntax, rebind here
+scan_delay = 0.5    # seconds to wait after the keypress so the reward screen finishes rendering
+
+[capture]
+monitor = 1         # mss monitor index, 1 = primary
+ui_scale = 1.0      # in-game UI scale the crop was calibrated at
+
+# Reward strip as fractions of the screen: left, top, right, bottom.
+# Measure with: python tools/calibrate.py reward.png
+crop = [0.31, 0.36, 0.69, 0.62]
+
+[ocr]
+engine = "tesseract"
+# Leave empty to use the tesseract found on PATH.
+tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+
+[match]
+threshold = 70      # rapidfuzz score below this is reported as unknown
+
+[market]
+cache_ttl = 300     # seconds to keep the item list and prices cached
+rate_limit = 0.3    # minimum seconds between warframe.market requests
+
+[server]
+host = "127.0.0.1"  # never change to 0.0.0.0
+port = 8765

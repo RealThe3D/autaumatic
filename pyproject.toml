@@ -1,0 +1,27 @@
+[project]
+name = "autaumatic"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.143.0",
+    "mss>=10.2.0",
+    "opencv-python>=5.0.0.93",
+    "pynput>=1.8.2",
+    "pytesseract>=0.3.13",
+    "python-slugify>=9.1.3",
+    "rapidfuzz>=3.14.6",
+    "requests>=2.34.2",
+    "uvicorn>=0.54.0",
+    "websockets>=17.2",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

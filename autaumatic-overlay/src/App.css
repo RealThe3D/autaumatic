@@ -1,0 +1,90 @@
+/* Overlay styles: dark translucent panel that floats over the game. */
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  background: transparent;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.status {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background: rgba(20, 20, 28, 0.9);
+}
+
+.status.disconnected {
+  color: #ff6b6b;
+}
+
+.status.scanning {
+  color: #ffd76b;
+}
+
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(20, 20, 28, 0.85);
+  color: #e8e8e8;
+}
+
+.slot.unknown {
+  color: #ff9d6b;
+}
+
+.slot.empty {
+  justify-content: center;
+  color: rgba(232, 232, 232, 0.3);
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.prices {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.plat {
+  color: #b6d7ff;
+}
+
+.ducats {
+  color: #ffd76b;
+}
