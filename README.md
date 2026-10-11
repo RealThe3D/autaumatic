@@ -1,4 +1,4 @@
-# Autaumatic
+# AuTAUmatic
 
 ## Submission for KnightHacks IX
 
